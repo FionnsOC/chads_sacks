@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Calculator{% endblock %}
+
+{% block content %}
+    <h2>Payout calculator</h2>
+
+    <form method="post" id="calc-form">
+        <label for="bags">How many bags sold?</label>
+        <input type="number" id="bags" name="bags" min="0" required value="{{ bags if bags is not none else '' }}">
+        <button type="submit">Calculate</button>
+    </form>
+
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+
+    <div class="results">
+        <label for="pc">Money per party member:</label>
+        <input type="text" id="pc" readonly value="{{ result.pc if result else '' }}">
+
+        <label for="employee">Money per employee:</label>
+        <input type="text" id="employee" readonly value="{{ result.employee if result else '' }}">
+
+        <label for="fund">Money for the fund:</label>
+        <input type="text" id="fund" readonly value="{{ result.fund if result else '' }}">
+    </div>
+
+    <!-- Link the button to the form above using the id tag "calc-form" -->
+    <button type="submit" form="calc-form" name="action" value="save">Save payout</button>    
+
+    
+{% endblock %}

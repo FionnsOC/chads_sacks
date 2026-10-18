@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Contact{% endblock %}
+
+{% block content %}
+
+    <img src="{{ url_for('static', filename='images/waterdeep_map.png') }}" alt="Map of Waterdeep">
+
+    <section>
+            <h2>Address</h2>
+            <address>
+                Bottmingerstrasse 73<br>
+                4102 Waterdeep<br>
+                Sword Coast
+            </address>
+    </section>
+
+{% endblock %}

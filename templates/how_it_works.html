@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}How it works{% endblock %}
+
+{% block content %}
+
+    <section>
+        <h2>Mechanics</h2>
+        <p>For every day (in-game), and every vendor, roll <b>1d12</b>. The result equals the number of bags sold. 
+            For the purposes of this, it's assumed that all bags cost 3 SP. A bag costs 5 CP to make.
+            To calculate the profits, the earnings of each party member and of each employee (except Stefie), 
+            simply put the number of bags sold in the calculator.
+        </p>
+
+        <p>Profit per bag: <code>3 SP - 5 CP = 25 CP</code></p>
+        <p><code><var>profit</var> = <var>bags</var> × 25 CP</code></p>
+
+    </section>
+    
+
+
+
+{% endblock %}

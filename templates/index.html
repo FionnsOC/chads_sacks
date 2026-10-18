@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block title %}The Business{% endblock %}
+
+{% block content %}
+    <section>
+        <h2>About the business</h2>
+        <p>Chad's Sacks was funded in 1495 DR. We sell lether bags. In the heart of Waterdeep</p>
+    </section>
+
+    <section>
+        <h2>Production</h2>
+        <p>TODO: materials, cost per bag (5 CP), selling price (3 SP).</p>
+    </section>
+
+    <section>
+        <h2>The Owners</h2>
+        
+        <figure>
+            <img src="{{ url_for('static', filename='images/player_dashboard.jpg') }}" alt="Photo of the owners team">
+            <figcaption>From left to right: PK, Chad, Rory, Fionn, Tsuki</figcaption>
+        </figure>
+    </section>
+
+    <section>
+        <h2>Employees</h2>
+        
+        <!-- 1. Jeff -->
+        <div class="employee-grid">
+            <figure class="employee">
+                <img src="{{ url_for('static', filename='images/stock_image.jpg') }}" alt="Portrait of Anna">
+                <figcaption>
+                    <span class="name">Jeff</span>
+                    <span class="role">Seamstress</span>
+                </figcaption>
+            </figure>
+            <!-- 2. Crickets -->
+            <figure class="employee">
+                <img src="{{ url_for('static', filename='images/stock_image.jpg') }}" alt="Portrait of Bram">
+                <figcaption>
+                    <span class="name">Crickets</span>
+                    <span class="role">Leatherworker</span>
+                </figcaption>
+            </figure>
+            <!-- 3. Steam -->
+            <figure class="employee">
+                <img src="{{ url_for('static', filename='images/stock_image.jpg') }}" alt="Portrait of Bram">
+                <figcaption>
+                    <span class="name">Crickets</span>
+                    <span class="role">Leatherworker</span>
+                </figcaption>
+            </figure>
+            <!-- 4. Stefie -->
+            <figure class="employee">
+                <img src="{{ url_for('static', filename='images/stock_image.jpg') }}" alt="Portrait of Bram">
+                <figcaption>
+                    <span class="name">Crickets</span>
+                    <span class="role">Leatherworker</span>
+                </figcaption>
+            </figure>
+            <!-- 5. Random -->
+            <figure class="employee">
+                <img src="{{ url_for('static', filename='images/stock_image.jpg') }}" alt="Portrait of Bram">
+                <figcaption>
+                    <span class="name">Crickets</span>
+                    <span class="role">Leatherworker</span>
+                </figcaption>
+            </figure>
+            <!-- 6. Random -->
+            <figure class="employee">
+                <img src="{{ url_for('static', filename='images/stock_image.jpg') }}" alt="Portrait of Bram">
+                <figcaption>
+                    <span class="name">Crickets</span>
+                    <span class="role">Leatherworker</span>
+                </figcaption>
+            </figure>
+            <!-- 7. Random -->
+            <figure class="employee">
+                <img src="{{ url_for('static', filename='images/stock_image.jpg') }}" alt="Portrait of Bram">
+                <figcaption>
+                    <span class="name">Crickets</span>
+                    <span class="role">Leatherworker</span>
+                </figcaption>
+            </figure>
+            <!-- 8. Random -->
+            <figure class="employee">
+                <img src="{{ url_for('static', filename='images/stock_image.jpg') }}" alt="Portrait of Bram">
+                <figcaption>
+                    <span class="name">Crickets</span>
+                    <span class="role">Leatherworker</span>
+                </figcaption>
+            </figure>
+
+
+        </div>
+    </section>
+
+    <section>
+        <h2>Vendors</h2>
+        <p>There are three vendors in the city</p>
+    </section>
+{% endblock %}

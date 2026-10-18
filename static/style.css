@@ -1,0 +1,182 @@
+/* ==========================================================
+   GLOBAL STYLES (used on every page)
+   These affect elements that come from base.html
+   or that appear on several pages.
+   ========================================================== */
+
+/* Colours defined once, reused everywhere with var(--name).
+   To change a colour for the whole site, change it here. */
+:root {
+    --nav-blue: #234557;
+    --page-bg: #F0EAD2;
+    --heading-red: #531107;
+    --button-blue: #00B0F0;
+}
+
+/* Base settings for the whole page */
+body {
+    margin: 0;                      /* removes the default white border around the page */
+    font-family: Georgia, serif;
+    background: var(--page-bg);
+}
+
+/* All second-level headings on all pages */
+h2 {
+    font-family: "Amasis MT Pro", Georgia, serif;   /* Amasis MT Pro is a Microsoft fond and might appear diffrently on different OS */
+    color: var(--heading-red);
+}
+
+/* Content area: used by every page via {% block content %}.
+   Limits the width and centers it. */
+main {
+    max-width: 50rem;
+    margin: 2rem auto;              /* top/bottom 2rem, left/right auto = centered */
+    padding: 0 1rem;
+}
+
+/* Every image inside main: never wider than its container,
+   and the height follows so the proportions stay correct.
+   This is why the team photo and the map shrink on small screens. */
+main img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ---------- Navigation bar (from base.html) ---------- */
+.navbar {
+    background: var(--nav-blue);
+    display: flex;                  /* puts logo and link list side by side */
+    align-items: center;            /* centers them vertically */
+    gap: 2rem;
+    padding: 0.5rem 2rem;
+}
+
+.navbar img {                       /* the logo */
+    height: 3.5rem;
+    display: block;
+}
+
+.navbar ul {                        /* the list of links */
+    list-style: none;               /* removes the bullet points */
+    display: flex;                  /* links in a row instead of a column */
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;          /* removes the underline */
+}
+
+.navbar a:hover {                   /* only while the mouse is over the link */
+    text-decoration: underline;
+}
+
+/* Login / Logout button in the navigation bar */
+.navbar a.nav-button {
+    background: var(--button-blue);
+    color: white;
+    padding: 0.4rem 1rem;
+    border-radius: 0.5rem;          /* rounded edges; use 999px for a pill shape */
+}
+
+.navbar a.nav-button:hover {
+    text-decoration: none;          /* no underline on the button */
+    background: #0090c8;            /* slightly darker when the mouse is over it */
+}
+
+/* ---------- Hero banner with the title (from base.html) ---------- */
+.hero {
+    background-image: url("images/hero.jpg");   /* path is relative to this CSS file */
+    background-size: cover;         /* fills the box, crops instead of stretching */
+    background-position: center;
+    height: 18rem;
+    display: flex;
+    align-items: center;            /* title centered vertically... */
+    justify-content: center;        /* ...and horizontally */
+}
+
+.hero h1 {
+    margin: 0;
+    font-size: clamp(2.5rem, 8vw, 6rem);   /* scales with window width, min 2.5rem, max 6rem */
+    color: rgb(0, 0, 0);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+
+/* ==========================================================
+   INDEX PAGE ONLY (index.html: "The Business")
+   ========================================================== */
+
+/* The grid that holds all employee cards */
+.employee-grid {
+    display: grid;
+    /* As many columns as fit, each at least 12rem wide,
+       leftover space is shared equally. Adapts to screen width. */
+    grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+    gap: 2rem 1.5rem;               /* row gap, column gap */
+}
+
+.employee {                         /* one card (a <figure>) */
+    margin: 0;                      /* removes the default figure margin */
+}
+
+.employee img {                     /* the portrait photo */
+    width: 100%;
+    aspect-ratio: 3 / 2;            /* all photos get the same shape */
+    object-fit: cover;              /* crops instead of squashing */
+    object-position: center top;    /* keeps faces from being cut off */
+    display: block;
+}
+
+.employee figcaption {              /* text area below the photo */
+    margin-top: 0.4rem;
+}
+
+.employee .name,
+.employee .role {
+    display: block;                 /* each on its own line */
+}
+
+.employee .name {
+    font-weight: bold;
+}
+
+
+/* ==========================================================
+   CALCULATOR PAGE ONLY (calculator.html)
+   ========================================================== */
+
+/* The three result fields with their labels */
+.results {
+    display: grid;
+    grid-template-columns: max-content 16rem;   /* label column as wide as its longest label, then the box */
+    gap: 0.75rem 1rem;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.results input {
+    padding: 0.4rem;
+    border: 2px solid var(--nav-blue);
+}
+
+
+/* ==========================================================
+   CONTACT PAGE ONLY (contact.html)
+   ========================================================== */
+
+/* <address> is shown in italics by default; this switches that off */
+address {
+    font-style: normal;
+}
+
+
+/* ==========================================================
+   Balances PAGE ONLY (balances.html)
+   ========================================================== 
+table, th, td {
+  border:1px solid black;
+}*/
