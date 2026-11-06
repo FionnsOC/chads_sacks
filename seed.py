@@ -1,8 +1,11 @@
 import sqlite3
+from pathlib import Path
 from db import DATABASE
 
-EMPLOYEES = ["Jeff", "Crickets", "Steam", "Name4",
-             "Name5", "Name6", "Name7", "Name8"]   # put your 8 real names here
+BASE_DIR = Path(__file__).resolve().parent
+
+EMPLOYEES = ["Jeff", "Crickets", "Steam", "Bree",
+             "Shardon", "Jobyn", "Jiff", "Suffer"]
 
 con = sqlite3.connect(DATABASE)
 with open(BASE_DIR / "schema.sql") as f:

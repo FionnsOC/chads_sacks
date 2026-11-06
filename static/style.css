@@ -144,6 +144,38 @@ main img {
     font-weight: bold;
 }
 
+/* The grid that holds all vendor cards */
+.vendor-grid {
+    display: grid;
+    /* As many columns as fit, each at least 12rem wide,
+       leftover space is shared equally. Adapts to screen width. */
+    grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+    gap: 2rem 1.5rem;               /* row gap, column gap */
+}
+
+.vendor {                         /* one card (a <figure>) */
+    margin: 0;                      /* removes the default figure margin */
+}
+
+.vendor img {                     /* the portrait photo */
+    width: 100%;
+    aspect-ratio: 3 / 2;            /* all photos get the same shape */
+    object-fit: cover;              /* crops instead of squashing */
+    object-position: center top;    /* keeps faces from being cut off */
+    display: block;
+}
+
+.vendor figcaption {              /* text area below the photo */
+    margin-top: 0.4rem;
+}
+
+.vendor .name{
+    display: block;                 /* each on its own line */
+}
+
+.vendor .name {
+    font-weight: bold;
+}
 
 /* ==========================================================
    CALCULATOR PAGE ONLY (calculator.html)

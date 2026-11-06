@@ -5,12 +5,18 @@
 {% block content %}
     <section>
         <h2>About the business</h2>
-        <p>Chad's Sacks was funded in 1495 DR. We sell lether bags. In the heart of Waterdeep</p>
+        <p>Chad's Sacks was funded in 1495 DR. We sell lether poches with protein powder in the heart of Waterdeep. 
+            Getting enough protein is vital for a balanced nutrition in these uncertain times. While other food businesses go under, 
+            we continue our mission to bring good quality protein powder to every citizen in Waterdeep.
+            We are a very modern and diverse company, offering employment to people of various backgrounds and walks of life.
+            </p>
     </section>
 
     <section>
         <h2>Production</h2>
-        <p>TODO: materials, cost per bag (5 CP), selling price (3 SP).</p>
+        <p>Every bag is carefully crafted by the most skilled craftspeople in all of Faerun. 
+            For the Materials we use locally sourced leather.
+            materials, cost per bag (5 CP), selling price (3 SP).</p>
     </section>
 
     <section>
@@ -38,7 +44,7 @@
             <figure class="employee">
                 <img src="{{ url_for('static', filename='images/stock_image.jpg') }}" alt="Portrait of Bram">
                 <figcaption>
-                    <span class="name">Crickets</span>
+                    <span class="name">Crickets Crockets</span>
                     <span class="role">Leatherworker</span>
                 </figcaption>
             </figure>
@@ -46,57 +52,83 @@
             <figure class="employee">
                 <img src="{{ url_for('static', filename='images/stock_image.jpg') }}" alt="Portrait of Bram">
                 <figcaption>
-                    <span class="name">Crickets</span>
+                    <span class="name">Steam Tu'erbyne</span>
                     <span class="role">Leatherworker</span>
                 </figcaption>
             </figure>
             <!-- 4. Stefie -->
             <figure class="employee">
-                <img src="{{ url_for('static', filename='images/stock_image.jpg') }}" alt="Portrait of Bram">
+                <img src="{{ url_for('static', filename='images/stefie.jpeg') }}" alt="Portrait of Bram">
                 <figcaption>
-                    <span class="name">Crickets</span>
+                    <span class="name">Stefie</span>
                     <span class="role">Leatherworker</span>
                 </figcaption>
             </figure>
-            <!-- 5. Random -->
+            <!-- Bree -->
             <figure class="employee">
-                <img src="{{ url_for('static', filename='images/stock_image.jpg') }}" alt="Portrait of Bram">
+                <img src="{{ url_for('static', filename='images/bree_shadowbane.png') }}" alt="Portrait of Bram">
                 <figcaption>
-                    <span class="name">Crickets</span>
+                    <span class="name">Bree Shadowbane</span>
                     <span class="role">Leatherworker</span>
                 </figcaption>
             </figure>
-            <!-- 6. Random -->
+            <!-- Shardon -->
             <figure class="employee">
-                <img src="{{ url_for('static', filename='images/stock_image.jpg') }}" alt="Portrait of Bram">
+                <img src="{{ url_for('static', filename='images/shardon_skiprock.png') }}" alt="Portrait of Bram">
                 <figcaption>
-                    <span class="name">Crickets</span>
+                    <span class="name">Shardon Skiprock</span>
                     <span class="role">Leatherworker</span>
                 </figcaption>
             </figure>
-            <!-- 7. Random -->
+            <!-- Jobyn -->
             <figure class="employee">
-                <img src="{{ url_for('static', filename='images/stock_image.jpg') }}" alt="Portrait of Bram">
+                <img src="{{ url_for('static', filename='images/jobyn_aldey.png') }}" alt="Portrait of Bram">
                 <figcaption>
-                    <span class="name">Crickets</span>
+                    <span class="name">Jobyn Aldey</span>
                     <span class="role">Leatherworker</span>
                 </figcaption>
             </figure>
-            <!-- 8. Random -->
+            <!-- Jiff -->
             <figure class="employee">
-                <img src="{{ url_for('static', filename='images/stock_image.jpg') }}" alt="Portrait of Bram">
+                <img src="{{ url_for('static', filename='images/jiff_jeffersen.png') }}" alt="Portrait of Bram">
                 <figcaption>
-                    <span class="name">Crickets</span>
+                    <span class="name">Jiff Jeffersen</span>
                     <span class="role">Leatherworker</span>
                 </figcaption>
             </figure>
-
+            <figure class="employee">
+                <img src="{{ url_for('static', filename='images/suffer_szereban.png') }}" alt="Portrait of Bram">
+                <figcaption>
+                    <span class="name">Suffer Szereban</span>
+                    <span class="role">Leatherworker</span>
+                </figcaption>
+            </figure>
 
         </div>
     </section>
 
     <section>
         <h2>Vendors</h2>
-        <p>There are three vendors in the city</p>
+        <p>There are three vendors in the city:</p>
+        <div class="vendor-grid">
+            <figure class="vendor">
+                <img src="{{ url_for('static', filename='images/flower_shop.jpg') }}" alt="Portrait of Bram">
+                <figcaption>
+                    <span class="name">Flowers by Kevin</span>
+                </figcaption>
+            </figure>
+            <figure class="vendor">
+                <img src="{{ url_for('static', filename='images/armory_dnd.jpg') }}" alt="Portrait of Bram">
+                <figcaption>
+                    <span class="name">The smith we robbed</span>
+                </figcaption>
+            </figure>
+            <figure class="vendor">
+                <img src="{{ url_for('static', filename='images/armory_dnd.jpg') }}" alt="Portrait of Bram">
+                <figcaption>
+                    <span class="name">The smith we robbed</span>
+                </figcaption>
+            </figure>
+        </div> 
     </section>
 {% endblock %}
