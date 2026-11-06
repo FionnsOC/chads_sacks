@@ -4,12 +4,33 @@
 
 {% block content %}
     <h2>Balances</h2>
+
+    <form method="get">
+        <label for="payout">Show balances as of:</label>
+        <select id="payout" name="payout" onchange="this.form.submit()">
+            <option value="latest" {{ 'selected' if selected == 'latest' }}>Most recent</option>
+            {% for p in payouts %}
+                <option value="{{ p.id }}" {{ 'selected' if selected == p.id|string }}>
+                    {{ harptos(p.dr_year, p.dr_month, p.dr_day) }} ({{ p.bags }} bags)
+                </option>
+            {% endfor %}
+        </select>
+        <noscript><button type="submit">Show</button></noscript>
+    </form>
+
+    {% if current %}
+        <p>State after the payout of <strong>{{ harptos(current.dr_year, current.dr_month, current.dr_day) }}</strong>.</p>
+    {% else %}
+        <p>No payouts have been saved yet.</p>
+    {% endif %}
+
     <table class="calc-table">
-        <tr><th>Name</th><th>Money</th></tr>
+        <tr><th>Name</th><th>Added in this payout</th><th>Total</th></tr>
         {% for row in rows %}
         <tr>
             <td>{{ row.name }}</td>
-            <td>{{ row.balance | coins }}</td>
+            <td>{{ row.added | coins }}</td>
+            <td>{{ row.total | coins }}</td>
         </tr>
         {% endfor %}
     </table>

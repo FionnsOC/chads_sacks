@@ -1,12 +1,15 @@
 from flask import Flask, render_template, request, redirect, url_for
 from calc import calculate, to_coins
-from db import close_db, init_db, save_payout, get_balances
+from db import close_db, init_db, save_payout, get_balances, get_payouts
 from functools import wraps
 from flask import Flask, render_template, request, redirect, url_for, session
+from harptos import MONTHS, YEARS, is_valid, format_date
+
 
 app = Flask(__name__)
 app.teardown_appcontext(close_db)
 app.jinja_env.filters["coins"] = to_coins    # lets templates write {{ value | coins }}
+app.jinja_env.globals["harptos"] = format_date   # {{ harptos(year, month, day) }} in templates
 app.secret_key = "any-long-random-text-you-like"   # signs the login cookie
 
 USERNAME = "chad"
@@ -57,14 +60,37 @@ def calculator():
                 "fund": to_coins(fund),
             }
             if request.form.get("action") == "save":
-                save_payout(bags, per_employee, fund)
-                return redirect(url_for("balances"))
+                try:
+                    dr_year = int(request.form["dr_year"])
+                    dr_month = int(request.form["dr_month"])
+                    dr_day = int(request.form["dr_day"])
+                    if not is_valid(dr_year, dr_month, dr_day):
+                        raise ValueError
+                except (KeyError, ValueError):
+                    error = "Please enter a valid date: a year, a month, and a day from 1 to 30."
+                else:
+                    save_payout(bags, per_employee, fund, dr_year, dr_month, dr_day)
+                    return redirect(url_for("balances"))
 
-    return render_template("calculator.html", result=result, error=error, bags=bags)
+    return render_template("calculator.html", result=result, error=error, bags=bags,
+                       calendar=MONTHS, years=YEARS, form=request.form)
 
 @app.route("/balances")
+#@login_required
 def balances():
-    return render_template("balances.html", rows=get_balances())
+    payouts = get_payouts()
+    valid_ids = {p["id"] for p in payouts}
+
+    choice = request.args.get("payout", "latest")
+    if choice.isdigit() and int(choice) in valid_ids:
+        payout_id = int(choice)
+    else:                                   # "latest", or anything unexpected
+        choice = "latest"
+        payout_id = payouts[0]["id"] if payouts else None
+
+    current = next((p for p in payouts if p["id"] == payout_id), None)
+    return render_template("balances.html", rows=get_balances(payout_id),
+                           payouts=payouts, selected=choice, current=current)
 
 
 # Login and Logout Routes

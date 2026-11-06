@@ -7,6 +7,9 @@ CREATE TABLE IF NOT EXISTS people (
 CREATE TABLE IF NOT EXISTS payouts (
     id         INTEGER PRIMARY KEY,
     bags       INTEGER NOT NULL,
+    dr_year    INTEGER,
+    dr_month   INTEGER,
+    dr_day     INTEGER,
     created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 

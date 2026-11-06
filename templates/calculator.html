@@ -9,6 +9,29 @@
         <label for="bags">How many bags sold?</label>
         <input type="number" id="bags" name="bags" min="0" required value="{{ bags if bags is not none else '' }}">
         <button type="submit">Calculate</button>
+        <!--Add dates-->
+        <div class="date-fields">
+            <label for="dr_day">Day:</label>
+            <select id="dr_day" name="dr_day">
+                {% for d in range(1, 31) %}
+                    <option value="{{ d }}" {{ 'selected' if form.dr_day == d|string }}>{{ d }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="dr_month">Month:</label>
+            <select id="dr_month" name="dr_month">
+                {% for name in calendar %}
+                    <option value="{{ loop.index }}" {{ 'selected' if form.dr_month == loop.index|string }}>{{ name }} ({{ loop.index }})</option>
+                {% endfor %}
+            </select>
+
+            <label for="dr_year">Year (DR):</label>
+            <select id="dr_year" name="dr_year">
+                {% for y in years %}
+                    <option value="{{ y }}" {{ 'selected' if form.dr_year == y|string }}>{{ y }}</option>
+                {% endfor %}
+            </select>
+        </div>
     </form>
 
     {% if error %}
